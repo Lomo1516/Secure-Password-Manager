@@ -11,3 +11,9 @@ Most users manage multiple passwords across different platforms, making it diffi
 This project aims to provide a **simple, secure, and local-only password manager** that allows users to store login credentials safely, generate strong passwords, and quickly retrieve them when needed — all without requiring internet access or external accounts.
 
 ---
+## Requirements
+```bash
+pip install cryptography
+```
+- Python 3.8+
+- `cryptography` library
