@@ -26,7 +26,7 @@ except ImportError:
     print("Missing dependency. Install with: pip install cryptography")
     sys.exit(1)
 
-VAULT_FILE = "vault.enc"
+VAULT_FILE = "data/vault.enc"
 ITERATIONS = 480_000
 
 

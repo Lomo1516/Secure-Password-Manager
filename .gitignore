@@ -185,3 +185,9 @@ cython_debug/
 *.sqlite3
 *.key
 secrets.*
+
+# Password vault (contains sensitive encrypted data)
+data/vault.enc
+
+# macOS system files
+.DS_Store
