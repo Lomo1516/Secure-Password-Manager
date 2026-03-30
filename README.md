@@ -141,7 +141,6 @@ Secure-Password-Manager/
 ├── data/
 │   └── vault.enc                   # your encrypted passwords (not on GitHub)
 ├── doc/
-├── test/
 ├── .gitignore
 └── README.md
 ```
