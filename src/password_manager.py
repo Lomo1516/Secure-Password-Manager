@@ -45,7 +45,7 @@ except ImportError:
 
 APP_DIR = os.path.join(os.path.expanduser("~"), ".password_manager")
 LEGACY_VAULT_FILE = os.path.join("data", "vault.enc")
-VAULT_FILE = os.path.join(APP_DIR, "vault.enc")
+VAULT_FILE = os.path.join("data", "vault.enc")
 ITERATIONS = 480_000
 SYMBOLS    = "!@#$%^&*()_+-=[]{}|;:,.<>?"
 
@@ -1275,6 +1275,14 @@ class MasterPasswordScreen(ctk.CTk):
     def _on_lock(self):
         self.password_var.set("")
         self.confirm_var.set("")
+        # Re-check whether a vault now exists (it will, since user just created one)
+        self.is_new_vault = not os.path.exists(VAULT_FILE)
+        # Rebuild the UI so it switches from "Create Vault" to "Unlock Vault"
+        for widget in self.winfo_children():
+            widget.destroy()
+        self._center_window(width=470, height=690 if self.is_new_vault else 540)
+        self._build()
+        self.bind("<Return>", lambda e: self._on_submit())
         self.deiconify()
         self.after(250, self.field_pw.focus)
 
